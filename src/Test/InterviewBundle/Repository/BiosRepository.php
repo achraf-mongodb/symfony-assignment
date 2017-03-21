@@ -39,7 +39,7 @@ class BiosRepository extends DocumentRepository
 
     /**
      * @param integer $year
-     * @return mixed
+     * @return array
      */
     public function findByDeadBefore($year)
     {
