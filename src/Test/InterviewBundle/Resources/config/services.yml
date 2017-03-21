@@ -1,0 +1,4 @@
+services:
+    test.interview.bios_service:
+        class: Test\InterviewBundle\Services\BiosService
+        arguments: ["@doctrine_mongodb"]

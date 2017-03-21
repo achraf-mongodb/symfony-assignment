@@ -4,12 +4,16 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
     /**
      * @Route("/", name="homepage")
+     * @param Request $request
+     * @return Response
      */
     public function indexAction(Request $request)
     {
@@ -17,5 +21,15 @@ class DefaultController extends Controller
         return $this->render('default/index.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
         ));
+    }
+
+    /**
+     * @Route("/hello", name="hello")
+     * @param Request $request
+     * @return Response
+     */
+    public function helloAction(Request $request)
+    {
+        return new JsonResponse(array('hello' => 'world!'));
     }
 }
